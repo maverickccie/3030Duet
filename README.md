@@ -18,7 +18,7 @@ Dude you rock!!!!!
 
 The orginal conversion to Haribo 3030 came from here: https://github.com/PrusaMK2Users/3030_Haribo_Edition
 
-The orginal website is gone.
+
 
 
 
