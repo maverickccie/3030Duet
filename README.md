@@ -10,7 +10,7 @@ Welcome my project page!
 
 ### CNCKitchen
 
-I used this his guide to move the Duet: https://www.cnckitchen.com/blog/prusa-mk25s-duet-3-mini-5-conversion
+I used this his guide to move to the Duet V3 mini: https://www.cnckitchen.com/blog/prusa-mk25s-duet-3-mini-5-conversion
 
 Dude you rock!!!!!
 
