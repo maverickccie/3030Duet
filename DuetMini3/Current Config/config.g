@@ -7,6 +7,7 @@
 G90                                          						; send absolute coordinates...
 M83                                          						; ...but relative extruder moves
 M550 P"Prusa MK2.5S DUET"                          					; set printer name
+;M575 P1 B57600 S1													; PannelDue Comm setup
 
 ; ##### Network
 M552 S1                                      						; enable network
@@ -23,8 +24,8 @@ M569 P3 S1 D3 V1000                               					; E drive @3 - inversed
 M584 X1 Y2 Z0:4 E3                     								; set drive mapping
 M671 X-37:287 Y0:0 S10                                     			; define dual driven z-axis 
 
-M350 X16 Y16 Z16 E16 I1                      						; configure microstepping with interpolation
-M92 X100.00 Y100.00 Z400.00 E820.00             					; set steps per mm
+M350 X16 Y16 Z16 E32 I1                      						; configure microstepping with interpolation
+M92 X100.00 Y100.00 Z400.00 E830.00             					; set steps per mm
 M566 X600.00 Y600.00 Z48.00 E300.00        							; set maximum instantaneous speed changes (mm/min)
 M203 X8000.00 Y8000.00 Z720.00 E7200.00      						; set maximum speeds (mm/min)
 M201 X1250.00 Y1250.00 Z1250.00 E2000.00        					; set accelerations (mm/s^2)
@@ -33,17 +34,18 @@ M84 S30                                      						; Set idle timeout
 
 ; ##### Axis Limits
 M208 X0 Y-4 Z0 S1                             						; set axis minima
-M208 X255 Y212.5 Z222.5 S0                       						; set axis maxima
+M208 X255 Y212.5 Z222.5 S0                       					; set axis maxima
 
 ; ##### Endstops
 M574 X1 S1 P"io0.in"                        						; X endstop
+;M574 X1 S1 P"io3.in"                        						; X endstop if the PannelDue is used
 M574 Y1 S1 P"io1.in"                        						; Y endstop
 
 ; ##### Filament Sensor
-; M591 D0 P2 C"io3.in" S1                                    			; Filament Runout Sensor
+; M591 D0 P2 C"io3.in" S1                                    		; Filament Runout Sensor
 
 ; ##### Z-Probe Settings for PINDA 2
-M558 P5 C"io2.in" I1 H1 F1000 T6000 A3              				; Prusa PindaV2 Endstop
+M558 P5 C"io2.in" I1 H3 F1000 T6000 A3              				; Prusa PindaV2 Endstop
 M308 S2 P"temp2" A"Pinda V2" Y"thermistor" T100000 B3950      		; Prusa PindaV2 Thermistor
 G31 P1000 X23 Y5 Z1.4                                  				; Nozzle offset
 M574 Z1 S2                                                 			; Set Z axis endstop, controlled by probe
